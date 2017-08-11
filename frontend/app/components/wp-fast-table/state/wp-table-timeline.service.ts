@@ -26,15 +26,12 @@
 // See doc/COPYRIGHT.rdoc for more details.
 // ++
 
-import {
-  TableStateStates, WorkPackageQueryStateService,
-  WorkPackageTableBaseService
-} from "./wp-table-base.service";
-import {QueryResource} from "../../api/api-v3/hal-resources/query-resource.service";
-import {opServicesModule} from "../../../angular-modules";
-import {States} from "../../states.service";
-import {WorkPackageTableTimelineState} from "./../wp-table-timeline";
-import {zoomLevelOrder} from "../../wp-table/timeline/wp-timeline";
+import {opServicesModule} from '../../../angular-modules';
+import {QueryResource} from '../../api/api-v3/hal-resources/query-resource.service';
+import {States} from '../../states.service';
+import {zoomLevelOrder} from '../../wp-table/timeline/wp-timeline';
+import {WorkPackageTableTimelineState} from '../wp-table-timeline';
+import {TableStateStates, WorkPackageQueryStateService, WorkPackageTableBaseService} from './wp-table-base.service';
 
 export class WorkPackageTableTimelineService extends WorkPackageTableBaseService implements WorkPackageQueryStateService {
   protected stateName = 'timelineVisible' as TableStateStates;
@@ -79,7 +76,7 @@ export class WorkPackageTableTimelineService extends WorkPackageTableBaseService
     return this.current.zoomLevel;
   }
 
-  public updateZoom(delta: number) {
+  public updateZoom(delta:number) {
     let currentState = this.current;
     let idx = zoomLevelOrder.indexOf(this.current.zoomLevel);
     idx += delta;
