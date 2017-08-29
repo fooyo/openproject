@@ -245,6 +245,11 @@ gem 'reform', '~> 2.2.0'
 gem 'reform-rails', '~> 0.1.7'
 gem 'roar', '~> 1.1.0'
 
+group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.3'
+end
+
 platforms :mri, :mingw, :x64_mingw do
   group :mysql2 do
     gem 'mysql2', '~> 0.4.4'
