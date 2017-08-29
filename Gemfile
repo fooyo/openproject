@@ -248,6 +248,9 @@ gem 'roar', '~> 1.1.0'
 group :development do
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano3-nginx'
 end
 
 platforms :mri, :mingw, :x64_mingw do

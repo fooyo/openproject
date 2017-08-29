@@ -8,10 +8,10 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 
 set :branch, :master
-set :stage, :master
+set :stage, :production
 set :deploy_user, 'deploy'
 set :deploy_to, "/home/#{fetch(:deploy_user)}/rails_apps/#{fetch(:full_app_name)}"
-server 'app.skoolight.com', user: 'deploy', roles: %w{app db web}
+server '54.169.151.61', user: 'deploy', roles: %w{app db web}
 set :rails_env, :production
 # set :ssh_options, {forward_agent: true, auth_methods: %w(publickey)}
 set :ssh_options, {forward_agent: true}
