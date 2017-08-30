@@ -14,7 +14,7 @@ set :passenger_restart_with_sudo, true
 
 set :nvm_type, :user # or :system, depends on your nvm setup
 set :nvm_node, 'v6.11.0'
-set :nvm_map_bins, %w{node npm yarn}
+set :nvm_map_bins, %w{node npm}
 
 
 # Default value for :linked_files is []
@@ -24,11 +24,14 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 set :bundle_flags, ' --path vendor/bundle'
 set :linked_dirs, %w(public/images/uploads)
+set :npm_flags, '--production'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # Default value for keep_releases is 5
 set :keep_releases, 5
+
+
 
 namespace :deploy do
 
@@ -46,6 +49,19 @@ namespace :deploy do
   # end
 
 end
+
+namespace :bundler do
+  desc 'Bundle pack'
+  task :pack do
+    on roles(:web) do
+      within release_path do
+        execute :bundle, 'pack'
+      end
+    end
+  end
+end
+
+before 'bundler:install', 'bundler:pack'
 
 
 # Default branch is :master
