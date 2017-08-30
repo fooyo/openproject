@@ -12,9 +12,9 @@ set :scm, :git
 
 set :passenger_restart_with_sudo, true
 
-set :nvm_type, :user # or :system, depends on your nvm setup
-set :nvm_node, 'v6.11.0'
-set :nvm_map_bins, %w{node npm}
+# set :nvm_type, :user # or :system, depends on your nvm setup
+# set :nvm_node, 'v6.11.0'
+# set :nvm_map_bins, %w{node npm}
 
 
 # Default value for :linked_files is []
@@ -29,7 +29,7 @@ set :npm_flags, '--production'
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # Default value for keep_releases is 5
-set :keep_releases, 5
+set :keep_releases, 3
 
 
 
