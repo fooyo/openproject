@@ -200,7 +200,7 @@ group :test do
   gem 'capybara', '~> 2.14.0'
   gem 'capybara-screenshot', '~> 1.0.14'
   gem 'fuubar', '~> 2.2.0'
-  gem 'capybara-select2', git: 'https://github.com/goodwill/capybara-select2', ref: '585192e'
+  gem 'capybara-select2'
   gem 'capybara-ng', '~> 0.2.7'
   gem 'selenium-webdriver', '~> 3.4'
   gem 'timecop', '~> 0.9.0'
@@ -252,6 +252,7 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-nginx'
   gem 'capistrano-npm'
+  gem 'capistrano-nvm', require: false
 end
 
 platforms :mri, :mingw, :x64_mingw do

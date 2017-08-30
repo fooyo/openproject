@@ -35,6 +35,7 @@ require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require "capistrano/nginx"
 require "capistrano/npm"
+require 'capistrano/nvm'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/**/*.rb").each { |r| import r }

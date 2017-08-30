@@ -12,6 +12,10 @@ set :scm, :git
 
 set :passenger_restart_with_sudo, true
 
+set :nvm_type, :user # or :system, depends on your nvm setup
+set :nvm_node, 'v6.11.0'
+set :nvm_map_bins, %w{node npm yarn}
+
 
 # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
