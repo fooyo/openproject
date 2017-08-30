@@ -251,6 +251,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rvm'
   gem 'capistrano3-nginx'
+  gem 'capistrano-npm'
 end
 
 platforms :mri, :mingw, :x64_mingw do

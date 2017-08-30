@@ -2,10 +2,11 @@
 lock "3.9.0"
 
 set :application, "openproject"
+set :full_app_name, "openproject"
 set :repo_url, "git@github.com:fooyo/openproject.git"
 
 set :stages, %w(staging production)
-set :default_stage, 'staging'
+set :default_stage, 'production'
 
 set :scm, :git
 
@@ -13,7 +14,7 @@ set :passenger_restart_with_sudo, true
 
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/application.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -41,19 +42,6 @@ namespace :deploy do
   # end
 
 end
-
-
-namespace :npm do
-  desc 'Install npm'
-  task :install do
-    on roles(:web) do
-      within release_path do
-        execute :npm, 'install'
-      end
-    end
-  end
-end
-after 'bundle:install', 'npm:install'
 
 
 # Default branch is :master
