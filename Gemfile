@@ -252,7 +252,6 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano3-nginx'
   gem 'capistrano-npm'
-  gem 'capistrano-nodenv', '~> 1.0'
 end
 
 platforms :mri, :mingw, :x64_mingw do

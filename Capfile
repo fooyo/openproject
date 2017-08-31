@@ -35,13 +35,6 @@ require "capistrano/rails/migrations"
 # require "capistrano/passenger"
 require "capistrano/nginx"
 require "capistrano/npm"
-require 'capistrano/nodenv'
-
-set :nodenv_type, :user # or :system, depends on your nodenv setup
-set :nodenv_node, '6.11.0'
-set :nodenv_prefix, "NODENV_ROOT=#{fetch(:nodenv_path)} NODENV_VERSION=#{fetch(:nodenv_node)} #{fetch(:nodenv_path)}/bin/nodenv exec"
-set :nodenv_map_bins, %w{node npm}
-set :nodenv_roles, :all # default value
 # require "capistrano/nvm"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
