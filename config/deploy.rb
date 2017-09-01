@@ -37,16 +37,19 @@ namespace :deploy do
 
   # after :started, :'nginx:stop'
   # after 'deploy:assets:precompile', :upload_assets
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      within release_path do
+        run "RAILS_ENV=production bin/delayed_job start"
+      end
+    end
+  end
+
   after :finishing, :'nginx:restart'
 
   #
-  # after :restart, :clear_cache do
-  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
-  #     within release_path do
-  #       run "touch _path}/tmp/restart.txt"
-  #     end
-  #   end
-  # end
+
 
 end
 
