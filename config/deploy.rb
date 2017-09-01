@@ -41,7 +41,7 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       within release_path do
-        run "RAILS_ENV=production bin/delayed_job start"
+        run "RAILS_ENV=production bin/delayed_job restart"
       end
     end
   end
