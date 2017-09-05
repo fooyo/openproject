@@ -278,6 +278,7 @@ end
 
 group :opf_plugins do
   gem 'openproject-translations', git: 'https://github.com/opf/openproject-translations.git', branch: 'release/7.2'
+  gem "openproject-meeting", :git => "https://github.com/finnlabs/openproject-meeting.git", :branch => "release/7.2"
 end
 
 # TODO: Make this group :optional when bundler v10.x
